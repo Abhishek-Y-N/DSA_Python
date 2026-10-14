@@ -17,7 +17,6 @@ class LinkedList:
 			temp.next=new_node
 		new_node.next=self.head   #set new_node to head 
 
-	#Not Working
 	def insert(self, new_node, pos):
 		if pos == 1:
 			temp = self.head
@@ -36,18 +35,29 @@ class LinkedList:
 				new_node.next = temp.next
 				temp.next = new_node
 
-	#Needs Update
-	def delete(self,pos):
-		if pos==1:
-			temp=self.head
-			self.head=temp.next
-		else:
-			p=1
-			temp=self.head
-			while(p!=pos-1):
-				temp=temp.next
-				p+=1
-			temp.next=temp.next.next
+	def delete(self, pos):
+
+		if pos == 1:
+			temp = self.head
+
+			if temp.next == self.head:
+				self.head = None
+				return
+			last = self.head
+			while last.next != self.head:
+				last = last.next
+
+			self.head = temp.next
+			last.next = self.head
+			return
+		temp = self.head
+		p = 1
+
+		while p < pos - 1 and temp.next != self.head:
+			temp = temp.next
+			p += 1
+
+		temp.next = temp.next.next
 			 
 		
 	def display(self):
@@ -71,5 +81,5 @@ li1.insert(Node(90),1)
 li1.insert(Node(50),5)
 li1.display()
 
-# li1.delete(3)
-# li1.display()
+li1.delete(3)
+li1.display()
