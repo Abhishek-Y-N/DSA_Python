@@ -105,10 +105,12 @@ li.delete(1)
 print("1st Position Deleted")
 li.display()
 
-li.delete(3)	#Need fix
+li.delete(3)
 print("3rd Position Deleted")
 li.display()
 
+#Print List in reverse order
 li.reverse_print()
 
+#Count C\Occurance of 10
 li.occurance(10)
