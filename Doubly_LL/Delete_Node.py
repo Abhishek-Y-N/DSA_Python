@@ -44,24 +44,29 @@ class LinkedList:
 			temp.next=new_node
 
 	
-	def delete(self,pos):
-		temp=self.head
+	def delete(self, pos):
+		if self.head is None:
+			print("List Is Empty")
+			return
+		temp = self.head
 		if pos==1:
-			self.head=self.head.next
-			self.head.prev=None
-		else:
-			p=1
-			temp=self.head
-			while(p!=pos-1):
-				if temp==None:
-					print("List Is Empty")
-					return
-				temp=temp.next
-				p+=1
-			temp.prev.next=temp.next
-			if temp.next:
-				temp.next.prev=temp.prev
-			temp=None
+			self.head=temp.next
+
+			if self.head:
+				self.head.prev=None
+			temp = None
+			return
+		p=1
+		while temp is not None and p < pos:
+			temp = temp.next
+			p += 1
+		if temp is None:
+			print("Invalid Position")
+			return
+		temp.prev.next = temp.next
+		if temp.next:
+			temp.next.prev = temp.prev
+		temp = None
 
 	def reverse_print(self):
 		temp=self.head
