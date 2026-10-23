@@ -45,7 +45,6 @@ class CQueue:
 				break
 		print("front")
 
-
 q=CQueue()
 q.enqueue(Node(10))
 q.enqueue(Node(20))
