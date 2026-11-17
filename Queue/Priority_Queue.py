@@ -28,16 +28,29 @@ class PriorityQueue:
 			prev.next=newnode
 			newnode.next=temp
 
+	#Delete Front Element
+	def dequeue(self):
+		if self.front:
+			print(self.front.data,"Deleted")
+			self.front=self.front.next
+		else:
+			print("Queue Is Empty!")
+
+	#Display All Elemenet
 	def display(self):
 		temp=self.front
 		while temp:
 			print(temp.data,end="->")
 			temp=temp.next
-
+		print()
+		
 pq=PriorityQueue()
 pq.enqueue(Node(10,2))
 pq.enqueue(Node(20,1))
 pq.enqueue(Node(30,4))
 pq.enqueue(Node(40,3))
+pq.display()
 
+pq.dequeue()
+pq.dequeue()
 pq.display()
